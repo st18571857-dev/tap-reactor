@@ -1,0 +1,32 @@
+# Dependencies and build files
+node_modules/
+*.log
+pm-debug.log*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.env
+.env.local
+
+# Build outputs
+dist/
+build/
+.cache/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# OS files
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Project specific
+*.bak
+*.tmp

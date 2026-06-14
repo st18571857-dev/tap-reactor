@@ -1,0 +1,29 @@
+{
+  "name": "tap-reactor",
+  "version": "1.0.0",
+  "description": "Fast-paced mobile arcade reflex game by ST Studio",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server",
+    "build": "echo 'Build process would go here'",
+    "test": "echo 'Test process would go here'"
+  },
+  "keywords": [
+    "game",
+    "arcade",
+    "mobile",
+    "tap",
+    "reflex",
+    "react"
+  ],
+  "author": "Sahil Thakur",
+  "studio": "ST Studio",
+  "license": "Copyright ST Studio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/st18571857-dev/tap-reactor.git"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}
