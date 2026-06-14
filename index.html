@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tap Reactor - Fast paced arcade reflex game by ST Studio">
+    <meta name="theme-color" content="#0a0e27">
+    
+    <title>Tap Reactor - ST Studio</title>
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Game Container -->
+    <div id="game-container" class="game-container">
+        <!-- Splash Screen -->
+        <div id="splash-screen" class="screen splash-screen active">
+            <div class="splash-content">
+                <div class="splash-logo">
+                    <h1 class="studio-name">ST STUDIO</h1>
+                </div>
+                <p class="splash-subtitle">Presented by ST Studio</p>
+                <p class="splash-creator">Created by Sahil Thakur</p>
+            </div>
+        </div>
+
+        <!-- Main Menu -->
+        <div id="main-menu" class="screen main-menu">
+            <div class="menu-content">
+                <h1 class="game-title">TAP REACTOR</h1>
+                <p class="game-subtitle">v1.0.0</p>
+                
+                <div class="menu-buttons">
+                    <button class="btn btn-primary" id="btn-play">PLAY</button>
+                    <button class="btn btn-secondary" id="btn-high-score">HIGH SCORE</button>
+                    <button class="btn btn-secondary" id="btn-statistics">STATISTICS</button>
+                    <button class="btn btn-secondary" id="btn-settings">SETTINGS</button>
+                    <button class="btn btn-secondary" id="btn-about">ABOUT</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mode Selection -->
+        <div id="mode-select" class="screen mode-select">
+            <div class="mode-content">
+                <h2>SELECT GAME MODE</h2>
+                
+                <div class="mode-buttons">
+                    <button class="btn btn-mode" id="btn-tap-mode" data-mode="tap">
+                        <span class="mode-name">TAP MODE</span>
+                        <span class="mode-desc">Tap colored circles</span>
+                    </button>
+                    <button class="btn btn-mode" id="btn-color-mode" data-mode="color">
+                        <span class="mode-name">COLOR CHALLENGE</span>
+                        <span class="mode-desc">Tap the right color</span>
+                    </button>
+                    <button class="btn btn-mode" id="btn-danger-mode" data-mode="danger">
+                        <span class="mode-name">DANGER MODE</span>
+                        <span class="mode-desc">Avoid black objects</span>
+                    </button>
+                    <button class="btn btn-mode" id="btn-survival-mode" data-mode="survival">
+                        <span class="mode-name">SURVIVAL MODE</span>
+                        <span class="mode-desc">Increasing difficulty</span>
+                    </button>
+                </div>
+                
+                <button class="btn btn-back" id="btn-back-menu">BACK</button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen game-screen">
+            <div class="game-header">
+                <div class="score-box">
+                    <span class="label">SCORE</span>
+                    <span class="value" id="score-display">0</span>
+                </div>
+                
+                <div class="timer-box">
+                    <span class="label">TIME</span>
+                    <span class="value" id="timer-display">30</span>
+                </div>
+                
+                <div class="lives-box">
+                    <span class="label">LIVES</span>
+                    <span class="value" id="lives-display">3</span>
+                </div>
+            </div>
+
+            <div class="combo-display" id="combo-display" style="display: none;">
+                <span>COMBO x<span id="combo-count">2</span></span>
+            </div>
+
+            <div class="game-area" id="game-area">
+                <!-- Game objects spawned here -->
+            </div>
+
+            <div class="game-footer">
+                <button class="btn btn-pause" id="btn-pause">⏸</button>
+            </div>
+        </div>
+
+        <!-- Pause Screen -->
+        <div id="pause-screen" class="screen pause-screen">
+            <div class="pause-overlay"></div>
+            <div class="pause-content">
+                <h2>PAUSED</h2>
+                <div class="pause-buttons">
+                    <button class="btn btn-primary" id="btn-resume">RESUME</button>
+                    <button class="btn btn-secondary" id="btn-quit">QUIT</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="screen game-over-screen">
+            <div class="game-over-content">
+                <h2>GAME OVER</h2>
+                
+                <div class="score-section">
+                    <div class="final-score">
+                        <span class="label">FINAL SCORE</span>
+                        <span class="value" id="final-score">0</span>
+                    </div>
+                    
+                    <div class="high-score-info">
+                        <span class="label">HIGH SCORE</span>
+                        <span class="value" id="high-score-info">0</span>
+                    </div>
+                </div>
+
+                <div class="game-over-buttons">
+                    <button class="btn btn-primary" id="btn-play-again">PLAY AGAIN</button>
+                    <button class="btn btn-secondary" id="btn-main-menu">MAIN MENU</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- High Score Screen -->
+        <div id="high-score-screen" class="screen high-score-screen">
+            <div class="high-score-content">
+                <h2>HIGH SCORES</h2>
+                <div class="high-score-list" id="high-score-list">
+                    <!-- High scores populated here -->
+                </div>
+                <button class="btn btn-back" id="btn-back-high-score">BACK</button>
+            </div>
+        </div>
+
+        <!-- Statistics Screen -->
+        <div id="statistics-screen" class="screen statistics-screen">
+            <div class="statistics-content">
+                <h2>STATISTICS</h2>
+                <div class="stats-grid" id="stats-grid">
+                    <!-- Stats populated here -->
+                </div>
+                <button class="btn btn-back" id="btn-back-statistics">BACK</button>
+            </div>
+        </div>
+
+        <!-- Settings Screen -->
+        <div id="settings-screen" class="screen settings-screen">
+            <div class="settings-content">
+                <h2>SETTINGS</h2>
+                
+                <div class="settings-options">
+                    <div class="setting-item">
+                        <label for="sound-toggle">Sound Effects</label>
+                        <input type="checkbox" id="sound-toggle" class="toggle" checked>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="music-toggle">Background Music</label>
+                        <input type="checkbox" id="music-toggle" class="toggle" checked>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="vibration-toggle">Vibration</label>
+                        <input type="checkbox" id="vibration-toggle" class="toggle" checked>
+                    </div>
+                </div>
+                
+                <button class="btn btn-back" id="btn-back-settings">BACK</button>
+            </div>
+        </div>
+
+        <!-- About Screen -->
+        <div id="about-screen" class="screen about-screen">
+            <div class="about-content">
+                <h2>ABOUT TAP REACTOR</h2>
+                
+                <div class="about-info">
+                    <p><strong>Studio:</strong> ST Studio</p>
+                    <p><strong>Creator:</strong> Sahil Thakur</p>
+                    <p><strong>Version:</strong> 1.0.0</p>
+                </div>
+                
+                <div class="about-description">
+                    <p>Fast paced reflex arcade game combining tap, color, dodge and survival mechanics.</p>
+                    <p>Tap Reactor is designed for mobile-first gameplay with smooth performance on all devices.</p>
+                </div>
+                
+                <p class="footer-text">© ST Studio</p>
+                
+                <button class="btn btn-back" id="btn-back-about">BACK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/audio-manager.js"></script>
+    <script src="js/particle-system.js"></script>
+    <script src="js/game-object.js"></script>
+    <script src="js/game-engine.js"></script>
+    <script src="js/ui-manager.js"></script>
+    <script src="js/storage-manager.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
